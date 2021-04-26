@@ -1,0 +1,31 @@
+{% extends "admin_layout.html.twig"%}
+{% import "macros/form.html.twig" as form %}
+{% block content %}
+<section class="container p-6">
+    <div class="p-6">
+        <form action="/admin/gprix" method="POST">
+            {{ csrf_input()|raw }}
+           <div class="field">
+                <label for="title">Nom de l'évènement</label>
+                <input name="title" id="title" value="{{ gprix_content.title}}" />
+           </div>
+           <div class="field">
+                <label for="date">Date de l'évènement</label>
+                <input name="date" id="date" value="{{ gprix_content.date}}" />
+           </div>
+           <div class="field">
+                <label for="content">Description de l'évènement</label>
+                <textarea name="content" id="content">{{ gprix_content.content}}</textarea/>
+           </div>
+           <div class="field">
+                <label for="nb_max_player">Nombre de participants</label>
+                <input name="nb_max_player" id="nb_max_player" value="{{ gprix_content.nb_max_player}}"/>
+           </div>
+           <div class="control">
+              <button class="button is-link bg-indigo">Modifier</button>
+            </div>
+        </form>   
+    </div>
+</section>
+
+{% endblock %}

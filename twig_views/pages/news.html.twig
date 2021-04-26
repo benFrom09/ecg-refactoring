@@ -1,0 +1,32 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+<section class="pt-12 container is-fluid mb-60 blog">
+    <div class="blog-container mt-85">
+        <div class="blog-title">
+            <h2 class="title is-2 text-center mb-60">Les Actualités</h2>
+        </div>
+        <div class="blog-content columns">
+            {% for article in articles %}
+            <div class="article {{article.id == last_insert_id ? "is-12 blog-art-is-first" : "by-2" }}">
+                {% if article.image %}
+                <div class="blog-image mb-35">
+                    <img src="/storage/blog/{{article.image}}" alt="">
+                </div>
+                {% endif %}
+                <div class="blog-text">
+                    <h3 class="subtitle is-4"><a href="/blog/article/{{article.id}}">{{article.title}}</a></h3>
+                    <p>{{ article.sample}}... <a class="is-default-link" href="/blog/article/{{article.id}}">voir la suite</a></p>
+                    <div class="blog-author">
+                        <span class="author">{{article.author}}</span>
+                        <time class="time" datetime="{{article.date}}">{{article.date|date('d-m-Y')}}</time>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>        
+    </div>
+    {% if nb_articles > 0 %}
+    {% include "partials/pagination.html.twig"%}
+    {% endif %}
+</section>
+{% endblock %}

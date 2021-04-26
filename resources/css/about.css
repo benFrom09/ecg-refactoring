@@ -1,0 +1,243 @@
+#about-ecg {
+    padding-top:180px;
+    padding-bottom: 120px;
+}
+
+
+
+.about-ecg-container {
+    width:60%;
+    margin:auto;
+}
+
+
+.t-d-center {
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2em;
+}
+
+.t-d-start {
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-bottom: 1.2em;
+}
+
+
+.t-d-2:before {
+    content:"";
+    display:inline-block;
+    height: 1px;
+    width:100%;
+    margin-right: 1rem;
+}
+
+.t-d-2:after {
+    content:"";
+    display:inline-block;
+    height: 1px;
+    width:100%;
+    margin-left: 1rem;
+}
+
+.t-d-2:before,.t-d-2:after {
+    background:var(--golfLightGreen);
+}
+
+
+
+
+.about-ecg-story,.about-ecg-chart {
+    padding-left:0;
+    padding:1rem;
+}
+
+.about-ecg-story h3,.about-ecg-chart h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.about-ecg-story p,.about-ecg-chart p {
+    padding-left:0;
+}
+
+.about-view-container {
+    width:100%;
+    margin:auto;
+}
+
+.about-view-container h3{
+    width:60%;
+    margin:auto;
+}
+
+#about-gallery-title {
+    margin-bottom:64px;
+}
+
+
+.view-container {
+    margin:0 2rem;
+    width:auto;
+    position:relative;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    padding-bottom:120px;
+}
+
+.about-img {
+    width:20%;
+    margin:15px;
+    cursor:pointer;
+    transition:width 0.4s ease-in-out;
+}
+
+.about-img:hover {
+    width:50%;
+}
+
+/************************************************************
+TEAM
+*************************************************************/
+
+.pro-container,.greenk-container,.pro-shop {
+    width:60%;
+    margin:auto;
+    padding-bottom:120px;
+}
+
+.space {
+    padding:5px;
+}
+
+.pro-box-content,.greenk-box-content,.pro-shop-box-content {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.portrait {
+    width:40%;
+}
+
+.pro-content,.greenk-content {
+    width:60%;
+    margin:1rem;
+}
+.pro-box-content figure,.greenk-box-content figure {
+    /*filter: drop-shadow(12px 12px 7px hsla(0,0%,0%,.5));*/
+    box-shadow:0 5px 8px 0 rgba(6, 32, 2, 0.12);
+}
+.pro-content ul {
+    margin-left:2rem;
+}
+.pro-box-content li {
+    padding:0 0 10px 0;
+    list-style-type: disclosure-closed;
+}
+
+.pro-info {
+    padding:2rem;
+    font-size: 1.5em;
+}
+
+
+.pro-shop-container {
+    width:100%;
+    background:linear-gradient(rgba(5, 5, 5,0.5), rgba(211, 211, 211, 0.041)), url('../storage/bgshop.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 900px;
+}
+.pro-shop {
+    padding-top:80px;
+    color:#fff;
+    font-size:1.5em;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.pro-shop h2 {
+    color:var(--golfYellow);
+}
+.pshop-t-d-center {
+    position:absolute;
+    top:30px;
+}
+
+.pro-shop .t-d-2:before,.pro-shop .t-d-2:after {
+    background:var(--golfYellow);
+}
+
+.pro-shop-content {
+    /*width:60%;*/
+    margin:auto;
+    background: var(--golfDarkGreen);
+    border-radius: 5px;
+    padding:20px;
+    text-align: center;
+}
+
+.gk_link {
+    color:var(--golfYellow);
+}
+
+.gk_link:hover{
+    color:var(--golfLightGreen);
+}
+
+@media(min-width:0) and (max-width:1024px) {
+    .about-ecg-container,.about-view-container,.pro-container,.greenk-container,.pro-shop {
+        width:80%;
+    }
+    .about-ecg-story h3,.about-ecg-chart h3 {
+        text-align:center;
+    }
+    .about-ecg-story p,.about-ecg-chart p {
+        text-align:center;
+    }
+    .pro-box-content, .greenk-box-content, .pro-shop-box-content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pro-box-content .portrait {
+        width:60%;
+    }
+
+    .pro-content {
+        width:100%;
+    }
+
+    .pro-content p {
+        text-align:center;
+    }
+    .pro-content ul {
+        margin:0;
+    }
+    .pro-content ul li {
+        text-align: center;
+    }
+     .portrait {
+        width:100%;
+    }
+    .greenk-content,.pro-shop-content {
+        width:100%;
+    }
+    .greenk-content p {
+        text-align:center;
+    }
+}

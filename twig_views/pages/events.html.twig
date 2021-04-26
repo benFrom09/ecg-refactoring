@@ -1,0 +1,45 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+<section class="table-events-section container is-fluid mb-60">
+    <h2 class="text-center sub-title">Compétitions et évènements {{ date|date('Y') }}</h2>
+    <div class="events-btn-container">
+        <a target="_blank" class="ecg-btn btn-large" href="https://web.ffgolf.org/resultats/listcompet.php?gk=8fe30ca41a1997bf4c54e827f5b250cd&pub=1">Résultats des compétitions</a>
+        <a target="_blank" class="ecg-btn btn-large" href="https://web.ffgolf.org/ffgolf/tee/tee.php?gk=8fe30ca41a1997bf4c54e827f5b250cd">Départ des compétitions</a>
+    </div>
+    <div class="table-events-container">
+            {% for i, month in events %}
+            <div class="table-events-content">
+                <table class="table events-table">
+                    <thead>
+                        <tr class="tr-bg-green">
+                             <th>{{ formatDateToFrench(i,"F","Europe/Paris")}}</th>
+                             <th></th>
+                             <th></th>
+                             <th></th>
+                         </tr>
+                    </thead>
+                    
+                {% for event in month %}
+                    <tbody>
+                        <tr>
+                            <td> {{ event.start_time|date('d')  }}</td>
+                            <td> 
+                                
+                                <div class="events-table-name">
+                                    {{ event.name  }}
+                                    {% if event.logo %}
+                                    <div class="table-events-logo"><img src="/storage/logo_premium.jpg" alt=""></div>
+                                     {% endif %}
+                                </div>   
+                            </td>
+                            <td class="table-description"> {{ event.description  }}</td>
+                        </tr>
+                    </tbody>                
+                {% endfor %}
+                </table>
+            </div>
+            {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

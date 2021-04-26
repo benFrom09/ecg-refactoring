@@ -1,0 +1,148 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+	<section id="prices">
+		<div class="prices-ecg-container">
+			<h2 class="t-d-center t-d-2 text-center sub-title">Tarifs<span class="fake-space"></span>au<span class="fake-space"></span>
+				{{ date }}
+			</h2>
+			{% if numberOfSpecialOffers >= 1 %}
+			<div class="price-special-offers">
+				<h3 class="text-center is-2">Offres du moment</h3>
+				<ul>
+				{% for item in _offers %}
+				{% if item.displayed == 1 %}
+				{% set colorized = (item.colorized == 1) ? "offer-colorized" : "" %}
+				{% set bold = (item.bold == 1) ? "offer-bold" : "" %}
+					
+						<li class="{{ colorized}} {{bold}}">{{ item.content }}</li>
+				{% endif %}	
+				{% endfor %}
+			</ul>
+			</div>
+			{% endif %}
+			<h3 class="table-price-subtitle">Parcours</h3>
+			<table class="table price-table">
+				<tr class="tr-bg-green">
+					<th></th>
+					{% for season in green_prices[0][0:3] %}
+						<th>{{ season }}</th>
+					{% endfor %}
+				</tr>
+				{% for key,prices in green_prices[1:][0:5] %}
+					<tr>
+						<td>{{ key }}</td>
+						{% for price in prices %}
+							{% if prices|length < 3%}
+								<td class="text-center" colspan="3">{{ price.price }}</td>
+							{% else %}
+								<td>{{ price.price }}</td>
+							{% endif %}
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</table>
+			<div class="season-info">
+				Basse saison: Décembre/janvier/Fevrier<br>Mi-saison: Novembre/Mars/Avril<br>Haute saison: Mai à Octobre
+			</div>
+			<div class="mb-15 text-center">
+				{% for item in bapteme %}
+				<span class="price-info">{{item.course_name}} {{ item.variable_name }}: {{ item.price }} euros </span>
+				{% endfor %}
+				<br>
+				<span class="price-danger m-0 text-center">({{bapteme[0].promo }})</span>
+			</div>
+			<hr>
+			<h3 class="table-price-subtitle">Parcours Pitch & Putt</h3>
+			<table class="table price-table">
+				<tr class="tr-bg-green">
+					<!--EXCLUDE -18ans and Baptême-->
+					<th></th>
+					{% for age in green_prices[0][4:] %}
+						<th class="text-center">{{ age }}</th>
+					{% endfor %}
+				</tr>
+				{% for key,prices in green_prices[1:][5:] %}
+					<tr>
+						<td>{{ key }}</td>
+						{% for price in prices %}
+							<td class="text-center">{{ price.price }}</td>
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</table>
+			<hr>
+			<!-- SUBSCRIPTIONS -->
+			<h3 class="table-price-subtitle">Abonnements et cotisations</h3>
+			<table class="table price-table">
+				<tr class="tr-bg-green">
+					<th></th>
+					{% for category in subscriptions[0][0:2] %}
+						<th class="text-center">{{ category }}</th>
+					{% endfor %}
+				</tr>
+				{% for key,prices in subscriptions[1:][0:] %}
+					
+					<tr>
+						{% if key == "Double Abonnement"%}
+						<td class="offer-bold"><span class="price-red-star">* </span>{{ key }}</td>
+						{% else %}
+						<td>{{ key }}</td>
+						{% endif %}
+						{% for price in prices %}
+							{% if prices|length < 2 %}
+								<td class="text-center" colspan="2">{{ price.price }} {{ price.comments }}</td>
+							{% else %}
+								<td class="text-center">{{ price.price }} {{ price.comments }}</td>
+							{% endif %}
+						{% endfor %}
+					</tr>
+				{% endfor %}
+				<tr>
+					<td class="text-center offer-bold" colspan="3">
+						<span class="price-red-star">* </span>Sur présentation d’un justificatif de cotisation pleine sur Parcours 18 T 
+					</td>
+				</tr>
+			</table>
+			{% if advantage %}
+			
+			<div class="price-advantage">
+				<h3>{{ advantage.title}}</h3>
+				{% set advantages = advantage.content|split('@')%}
+					<ol>
+				{% for item in advantages %}
+					{% if item != "" %}
+					<li>{{item}}</li>
+					{% endif %}
+				{% endfor %}
+					</ol>
+			</div>
+			{% endif %}
+			<hr>
+			<!--/SUBS-->
+			<h3 class="table-price-subtitle">Prestations</h3>
+			<table class="table price-table">
+				<tr class="tr-bg-green">
+					<th></th>
+					{% for category in services[0][0:2] %}
+						<th class="text-center">{{ category }}</th>
+					{% endfor %}
+				</tr>
+				{% for key,prices in services[1:][0:] %}
+					<tr>
+						<td>{{ key }}</td>
+						{% for price in prices %}
+							{% if prices|length < 2 %}
+								<td class="text-center">-</td>
+								<td class="text-center">{{ price.price }} {{ price.comments}}</td>
+							{% else %}
+								<td class="text-center">{{ price.price }} {{ price.comments}}</td>
+							{% endif %}
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</table>
+			<p class="price-danger text-center">* Les tarifs sont donnés (en euros) à titre indicatif
+			</p>
+		</div>
+	</section>
+{% endblock %}

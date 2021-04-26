@@ -1,0 +1,18 @@
+{% import "macros/dropdown.html.twig" as dropdown %}
+<header>
+    <nav>     
+        <ul class="header-menu">
+          {% if isAuth() %}
+            <li><a href="/admin/index">Admin</a></li>
+          {% endif %}
+        
+          {% for key, item in menu_items %}             
+            <li><a href="{{ item }}">{{ key }}</a></li>
+          {% endfor %}
+        </ul>        
+    </nav>
+     <div id="hamburger">☰</div>
+    <div id="logo">
+      <img src="/storage/logo.png" alt="logo blason ecogolf">
+    </div>
+</header>

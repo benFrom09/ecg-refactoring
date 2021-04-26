@@ -1,0 +1,54 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+	<section class="container pt-18 mb-60">
+
+		<div class="gprix-container flex-center is-relative">
+			<div class="gprix-content">
+				<h1 class="gprix-title is-uppercase">{{ gprix_content.title }}</h1>
+				<h3 class="text-center is-size-4">{{ gprix_content.date }}</h3>
+				<div class="text-center mb-35 p-3 is-size-5">
+					{{ gprix_content.text |striptags('<br><span></span>')|raw }}
+				</div>
+				<p class="m-auto text-center gprix-link-container">
+					<a id="gprixAffiche" target="_blank" class="btn-large ecg-btn gprix-btn" href={{gprix_content.btn[1]}}>{{ gprix_content.btn[0]}}</a>
+				</p>
+			</div>
+			<div class="gprix_affiche_container">
+				<img class="click_img" class="m-auto" src="/storage/grandprix/golfeuse.jpg" alt="affiche grand prix">
+			</div>
+			<div class="partner_logo_wrapper">
+				<div class="gprix_partners">
+					<div class="gprix_partner_logo">
+						<img src="/storage/grandprix/logo/conseil_regional_de_midi_pyrenees.jpg" alt="logo partenaire la bastide de serou 09">
+					</div>
+					<div class="gprix_partner_logo">
+						<img src="/storage/grandprix/logo/logo_LBS.jpg" alt="logo partenaire la bastide de serou 09">
+					</div>
+					<div class="gprix_partner_logo">
+						<img src="/storage/grandprix/logo/couserans.png" alt="logo partenaire la bastide de serou 09">
+					</div>
+					<div class="gprix_partner_logo">
+						<img src="/storage/grandprix/logo/logo_09.png" alt="logo partenaire la bastide de serou 09">
+					</div>
+				</div>
+				<div class="gprix_partners_special">
+					<div class="gprix_partner_logo mcdo">
+						<img src="/storage/grandprix/logo/macdo.jpg" alt="logo partenaire la bastide de serou 09">
+					</div>
+					<div class="gprix_partner_logo nissan">
+						<img src="/storage/grandprix/logo/nissan.png" alt="logo partenaire la bastide de serou 09">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="modal">
+	<div class="modal-background"></div>
+	<div class="modal-content">
+		<p class="modal-image-container">
+			<img class="modal-image" src="/storage/grandprix/golfeuse.jpg" alt="affiche grand prix">
+		</p>
+	</div>
+	<button class="modal-close is-large" aria-label="close"></button>
+</div>{% endblock %}

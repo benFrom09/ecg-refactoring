@@ -1,0 +1,203 @@
+{% import "macros/form.html.twig" as form %}
+<div class="prices-ecg-container">
+	<h3 class="table-price-subtitle">Parcours</h3>
+	<form action="/admin/index/edit-prices" method="post">
+		{{ csrf_input()|raw }}
+		<table class="table price-table-admin">
+			<tr class="tr-bg-indigo">
+				<th></th>
+				{% for season in _green_prices[0][0:3] %}
+					<th>{{ season }}</th>
+				{% endfor %}
+			</tr>
+
+			{% for key,prices in _green_prices[1:][0:5] %}
+				<tr>
+					<td>{{ key }}</td>
+					{% for price in prices %}
+						{% if prices|length < 3%}
+							<td class="text-center" colspan="3">
+								<input type="text" name="{{price.id}}[]" value="{{ price.price }}">
+								{% if price.comments %}
+									<input type="text" name="{{price.id}}[]" value="{{ price.comments }}">
+								{% endif %}
+							</td>
+						{% else %}
+							<td>
+								<input type="text" name="{{price.id}}[]" value="{{ price.price }}">
+								{% if price.comments %}
+									<input type="text" name="{{price.id}}[]" value="{{ price.comments }}">
+								{% endif %}
+							</td>
+						{% endif %}
+					{% endfor %}
+				</tr>
+			{% endfor %}
+
+
+		</table>
+		{{ form.submit("Modifier","bg-indigo")}}
+	</form>
+	<hr>
+	<h3 class="table-price-subtitle">Batpême</h3>
+	<form action="/admin/index/edit-bapteme" method="post">
+		{{ csrf_input()|raw }}
+		{% for item in bapteme %}
+			<div class="field">
+				<label for="{{ item.variable_name}}">{{item.variable_name}}:</label>
+				<input type="text" name="{{item.id}}" id="{{item.variable_name}}" value="{{item.price}}">
+			</div>
+		{% endfor %}
+		<div class="field">
+			<label for="promo">Description:</label>
+			<textarea class="textarea" name="promo" id="promo">{{ bapteme_promo.promo}}</textarea>
+		</div>
+		{{ form.submit("Modifier","bg-indigo")}}
+	</form>
+	<hr>
+	<h3 class="table-price-subtitle">Parcours Pitch & Putt</h3>
+	<form action="/admin/index/edit-prices" method="post">
+		{{ csrf_input()|raw}}
+		<table class="table price-table-admin">
+			<tr class="tr-bg-indigo">
+				<th></th>
+				{% for season in _green_prices[0][4:] %}
+					<th>{{ season }}</th>
+				{% endfor %}
+			</tr>
+			{% for key,prices in _green_prices[1:][5:] %}
+				<tr>
+					<td>{{ key }}</td>
+					{% for price in prices %}
+						<td>
+							<input type="text" name="{{price.id}}[]" value="{{ price.price }}">
+							{% if price.comments %}
+								<input type="text" name="{{price.id}}[]" value="{{ price.comments }}">
+							{% endif %}
+						</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+		{{ form.submit("Modifier","bg-indigo")}}
+	</form>
+	<hr>
+	<!-- SUBSCRIPTIONS -->
+	<h3 class="table-price-subtitle">Abonnements et cotisations</h3>
+	<form action="/admin/index/edit-prices" method="post">
+		{{ csrf_input()|raw }}
+		<table class="table price-table-admin">
+			<tr class="tr-bg-indigo">
+				<th></th>
+				{% for season in subscriptions[0][0:2] %}
+					<th>{{ season }}</th>
+				{% endfor %}
+			</tr>
+			{% for key,prices in subscriptions[1:][0:] %}
+				<tr>
+					<td>{{ key }}</td>
+					{% for price in prices %}
+						{% if prices|length < 2 %}
+							<td colspan="2">
+								<input type="text" name="{{price.id}}[]" value="{{ price.price }}">
+								{% if price.comments %}
+									<input type="text" name="{{price.id}}[]" value="{{ price.comments }}">
+								{% endif %}
+							</td>
+						{% else %}
+							<td>
+								<input type="text" name="{{price.id}}[]" value="{{ price.price }}">
+								{% if price.comments %}
+									<input type="text" name="{{price.id}}[]" value="{{ price.comments }}">
+								{% endif %}
+							</td>
+						{% endif %}
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+		{{ form.submit("Modifier","bg-indigo")}}
+	</form>
+	<hr>
+	<h3 class="table-price-subtitle">Avantage Membres Parcours</h3>
+	<form action="/admin/index/edit-advantage" method="post">
+		{{ csrf_input()|raw }}
+		<p class="admin-help">! délimiter chaque avantage en terminant par: @ </p>
+		<div class="field">
+			<label for="advantage">Description:</label>
+			<textarea class="textarea" name="advantage" id="advantage">{{ advantage.content}}</textarea>
+		</div>
+		{{ form.submit("Modifier","bg-indigo")}}
+	</form>
+	<hr>
+	<!--/SUBS-->
+	<h3 class="table-price-subtitle">Prestations</h3>
+	<form action="/admin/index/edit-prices" method="post">
+		{{ csrf_input()|raw }}
+		<table class="table price-table-admin">
+			<tr class="tr-bg-indigo">
+				<th></th>
+				{% for season in services[0][0:2] %}
+					<th>{{ season }}</th>
+				{% endfor %}
+			</tr>
+			{% for key,prices in services[1:][0:] %}
+				<tr>
+					<td>{{ key }}</td>
+					{% for price in prices %}
+						{% if prices|length < 2 %}
+							<td colspan="2">
+								<input type="text" name="{{price.id}}[]" value="{{ price.price }}">
+								{% if price.comments %}
+									<input type="text" name="{{price.id}}[]" value="{{ price.comments }}">
+								{% endif %}
+							</td>
+						{% else %}
+							<td>
+								<input type="text" name="{{price.id}}[]" value="{{ price.price }}">
+								{% if price.comments %}
+									<input type="text" name="{{price.id}}[]" value="{{ price.comments }}">
+								{% endif %}
+							</td>
+						{% endif %}
+					{% endfor %}
+				</tr>
+			{% endfor %}
+
+		</table>
+		{{ form.submit("Modifier","bg-indigo")}}
+	</form>
+	<hr>
+	<h3 class="table-price-subtitle">Offres spéciales</h3>
+	<form action="/admin/index/edit-offers" method="post">
+		{{ csrf_input()|raw }}
+		{% for offer in offers %}
+		<div class="field">
+			<label for="{{offer.id}}">Offre n°{{ offer.id}}:</label>
+			<textarea class="textarea" name="{{ offer.id }}[content]" id="{{offer.id}}">{{ offer.content}}</textarea>
+		</div>
+		<div class="field">
+			{% set attribute = (offer.colorized == 1) ? "checked":"" %}
+			<label for="colorized{{ offer.id }}" class="checkbox">Phrase en couleur:</label>
+			<div class="control">
+				<input autocomplete="off" class="special-offer-input" type="checkbox" id="colorized{{ offer.id }}" name="{{ offer.id }}[colorized]" value="{{offer.colorized}}" {{ attribute }}>
+			</div>       
+		  </div>
+		  <div class="field">
+			{% set attribute = (offer.bold == 1) ? "checked":"" %}
+			<label for="bold{{ offer.id }}" class="checkbox">Phrase en gras:</label>
+			<div class="control">
+				<input autocomplete="off" class="special-offer-input" type="checkbox" id="bold{{ offer.id }}" name="{{ offer.id }}[bold]" value="{{offer.bold}}" {{ attribute }}>
+			</div>       
+		  </div>
+		  <div class="field">
+			{% set attribute = (offer.displayed == 1) ? "checked":"" %}
+			<label for="displayed{{ offer.id }}" class="checkbox">Afficher sur le site:</label>
+			<div class="control">
+				<input autocomplete="off" class="special-offer-input" type="checkbox" id="displayed{{ offer.id }}" name="{{ offer.id }}[displayed]" value="{{offer.displayed}}" {{ attribute }}>
+			</div>       
+		  </div>
+		{% endfor %}
+		{{ form.submit("Modifier","bg-indigo")}}
+	</form>
+</div>

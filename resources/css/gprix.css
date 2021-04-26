@@ -1,0 +1,106 @@
+.gprix-container {
+    padding: 20px;
+    background:var(--golfDarkTurquoise);
+    border-radius: 25px;
+    margin-top: 15px;
+    color: #c3c5c4;
+    box-shadow: 0px 0px 1px 6px #385d41;
+    border: 2px solid #385d41;
+}
+.gprix-title {
+    color:var(--golfYellow);
+    text-align: center;
+    font-size: 1.7em;
+    margin-bottom:1em;
+}
+.gprix_affiche_container{
+    margin:40px;
+}
+
+
+.image.is-4by3 {
+    padding-top: 0;
+    height: 100vh;
+
+}
+
+.click_img {
+    width:75%;
+}
+.gprix-btn:hover {
+    background:var(--golfYellow)!important;
+    color:var(--golfDarkTurquoise)!important;
+}
+.gprix_partners {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+.gprix_partners_special {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+.gprix_partner_logo {
+   width: 70px;
+   margin:5px;
+   box-sizing: border-box;
+   background:#fff;
+   border-radius: 1px;
+}
+.nissan,.mcdo {
+    background:transparent;
+    width: 40px;
+}
+.gprix_partner_logo img {
+    margin: auto;
+}
+
+
+
+@media (min-width:0) and (max-width:1024px) {
+    .gprix-container {
+        flex-direction: column;
+    }
+    .gprix-content {
+        width:auto;
+    }
+    .gprix-link-container {
+        width:auto;
+    }
+    .gprix_partners {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 1.2rem;
+    }
+    .gprix_partners_special {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 1.2rem;
+    }
+    .gprix_partner_logo {
+       width: 70px;
+       margin:5px;
+       box-sizing: border-box;
+       background:#fff;
+       border-radius: 1px;
+    }
+
+    .nissan,.mcdo {
+        background:transparent;
+    }
+}
+
+@media (min-width:461px) and (max-width:1024px) {
+    .gprix_affiche_container {
+        width:300px;
+    }
+}

@@ -1,0 +1,34 @@
+{% extends "admin_layout.html.twig" %}
+{% import "macros/form.html.twig" as form %}
+{% block content %}
+<div class="container p-6">
+    <h2 class="p-6 subtitle text-center mb-0">Ajouter un nouvel article</h2>
+    {% include "admin/partials/session_message.html.twig"%}
+    {% if errors is not empty%}
+    <article class="message is-danger">
+        <div class="message-header">
+          <p class="p-0">{{ "Erreur" }}</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          {% for error in errors %}
+            <p class="p-0">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </article>
+    {% endif %}
+    <form autocomplete="off" class="w-50 m-auto card-form" action="" method="POST" enctype="multipart/form-data">
+        {{ csrf_input()|raw }}
+        {{ form.input("Titre de l'article","text","article_title","")}}
+        {{ form.input("Auteur","text","article_author","L'equipe de l'écogolf")}}
+        {{ form.input("Date:","date","date",date)}}
+        {{form.input("Image","file","article_image","")}}
+        <div id="preview"></div>
+        <div class="field">
+          <label for="article-editor">Contenu de l'article</label>
+          <textarea class="textarea" name="article_content" id="article-editor"></textarea>
+        </div>
+       <button class="button is-link bg-indigo" type="submit">Ajouter l'article</button>
+    </form>
+</div>
+{% endblock %}

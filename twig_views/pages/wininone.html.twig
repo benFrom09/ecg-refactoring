@@ -1,0 +1,41 @@
+{% extends "layout.html.twig"%}
+{% block content %}
+	<section class="wininone pt-18">
+		<div class="wininone-container">
+			<h1 class="wininone_logo flex-center"><img class="w-30" src="/storage/wininone/wininone_logo.png" alt="logo win in one"></h1>
+			<h2 class="wininone_title">Un concept unique et novateur proposé par la société 18.events</h2>
+			<div class="wininone_content z-800">
+				<figure class="z-800 wininone_img">
+					<img class="click_img wininone_trou m-auto" src="/storage/wininone/trou_12.jpg" alt="photo du trou 12">
+				</figure>
+				<div class="wininone_text_content">
+					
+					<div class="million text-center">Le trou à 1 million de dollars !</div>
+					<div class="exploit text-center">Votre exploit filmé en HD</div>
+					<div class="wininone_green_text text-center">Mettez la balle dans le trou n°12 en 1 seul coup</div>
+					<p class="wininone_text text-center">
+						Et tentez de gagner un pack Apple Pro d'une valeur de <span>4500 euros</span> et une semaine à HAWAÏ all inclusive
+						                pour jouer la finale de la compétition WinInOne<br>
+						Le vainqueur de la finale remportera <span>un million de dollars</span>
+                    </p>
+                    <div class="m-auto text-center">
+						<a target="_blank" class="btn-large wininone_btn" href="https://wininone.golf/">Je tente ma chance</a>
+					</div>
+					<p class="modalite">
+						Modalités du jeu : être majeur, s'être acquitté de son droit de jeu participatif quotidien ou annuel, et ne pas être golfeur professionnel.<br>
+						Attention jeu spécialement conçu pour les plus de 18 ans.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="modal">
+		<div class="modal-background"></div>
+		<div class="modal-content w1_modal">
+			<p class="modal-image-container">
+				<img class="modal-image w1-modal-img" src="/storage/wininone/trou_12.jpg" alt="photo trou 12 du golf">
+			</p>
+		</div>
+		<button class="modal-close is-large" aria-label="close"></button>
+	</div>
+{% endblock %}

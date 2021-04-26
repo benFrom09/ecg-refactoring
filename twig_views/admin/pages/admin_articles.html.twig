@@ -1,0 +1,45 @@
+{% extends "admin_layout.html.twig" %}
+{% import "macros/form.html.twig" as form %}
+{% block content %}
+<div class="container p-6">
+    <h2 class="p-6 subtitle text-center mb-0">Liste des articles du blog</h2>
+    {% include "admin/partials/session_message.html.twig"%}
+    <div class="articles">
+        <h3 class="text-center">Il y'a actuellement {{nb_articles}} article(s) enregistré(s)</h3>
+        <p><a class="button is-link bg-indigo" href="/admin/article/add">Ajouter un article</a></p>
+    {% if articles %}
+        <table class="table is-hoverable is-stripped w-100">
+           <thead>
+               <tr class="thead-bb-2">
+                   <th>Id</th>
+                   <th>Titre de l'article</th>
+                   <th>Date</th>
+                   <th>Action</th>
+               </tr>
+           </thead>
+           <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{article.id}}</td>
+                    <td><a class="is-default-link" href="/admin/article/{{ article.id }}">{{article.title}}</a></td>
+                    <td>{{ article.date|date("d-m-Y")}}</td>
+                    
+                    <td>
+                        <div class="flex">
+                            <a class="button is-link bg-indigo mr-10" href="/admin/article/{{ article.id }}">Modifier</a>
+                            <form class="mb-0" action="/admin/article/delete/{{ article.id }}" method="POST">
+                                {{ csrf_input()|raw }}
+                                <input type="hidden" name="article_title" value="{{article.title}}">
+                                <button type="submit" class="button is-danger">supprimer</button>
+                            </form>
+                        </div>   
+                    </td>
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+    {% endif %}     
+    </div>
+    {% include "partials/pagination.html.twig"%}
+</div>
+{% endblock %}

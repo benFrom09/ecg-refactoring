@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% block stylesheets %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160608490-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-160608490-1');
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Roboto|PT+Serif&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<!--FONTAWESOME-->
+<link rel="stylesheet" href="/all.css">
+<!--BULMA-->
+<link rel="stylesheet" href="/main.css">
+<!--ECG CSS-->
+<link rel="stylesheet" type="text/css" href="/app.css" /> 
+{% endblock %}
+<!--Favicon-->
+<link rel="apple-touch-icon" sizes="57x57" href="storage/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="storage/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="storage/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="storage/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="storage/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="storage/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="storage/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="storage/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="storage/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="storage/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="storage/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="storage/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="storage/favicon/favicon-16x16.png">
+<link rel="manifest" href="storage/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<script src="https://cdn.tiny.cloud/1/rfbc9b5mn3kz6ttutziko1dmhuhaapimq9k8fk98czctoymp/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script defer src="/bundle.js"></script>
+<title>{{ SITE_NAME}}</title>

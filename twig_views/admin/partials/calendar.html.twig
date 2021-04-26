@@ -1,0 +1,43 @@
+<div id="Calendar" class="w-100">
+    <div class="calendar-title">
+         <h2>{{ calendar.tostring() }}</h2>
+         <div class="calendar-navigation">
+             <a href="/admin/events/{{ previous.getMonth()}}/{{previous.getYear()}}" class="calendar-btn bg-indigo">&lt</a>
+             <a href="/admin/events/{{next.getMonth()}}/{{next.getYear()}}" class="calendar-btn bg-indigo">&gt</a>
+         </div>
+         <a class="calendar-btn calendar-btn-add bg-indigo" href="/admin/event/add">+</a>
+    </div>
+   <table class="calendar-table">
+        {% for i in 0..calendar.getWeeks() %}
+            <tr>
+                {% for dayIndex, day in calendar.getDays() %}
+                    {% set cellNumber = i * 7 + dayIndex %}
+                    {% set firstDay = calendar.getStartingDay() %}
+                    {% set start = firstDay|date('N') == 1 ? firstDay : date(firstDay|date_modify('last monday')|date('Y-m-d'))  %}
+                    {% set numDate = date(start|date_modify("+#{cellNumber} days")|date('Y-m-d')) %}
+                    {% set className = calendar.isInMonth(numDate) ? '' : 'calendar-over-month' %}
+                    {% set events = calendar.getEvents()%}
+                    {% set events = events.getEventsByDay()[numDate|date('Y-m-d')] ?? [] %}
+                    <td class="{{ className }}">
+                        <div>
+                            <div class="calendar-day">
+                                <a href="/admin/event/add/{{ numDate|date('Y-m-d') }}">{{ i == 0 ? day : "" }} <span class="{{ numDate|date('Y-m-d') == "now"|date('Y-m-d') ? "day-light" : "" }}">{{ numDate|date('d') }}</span></a>
+                            </div>
+                        </div>
+                        <div class="calendar-evt-container">
+                            {% for event in events %}
+                                <div class="calendar-evt">
+                                    <span class="color"></span>
+                                    <span class="time">
+                                        {{ event.start_time|date('H:i') }} :
+                                    </span>
+                                    <a href="/admin/event/edit/{{event.id}}">{{event.name}}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+   </table>
+</div>

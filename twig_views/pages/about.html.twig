@@ -1,0 +1,57 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+<section id="about-ecg">
+    <div class="about-ecg-container">
+        <h2 class="t-d-center t-d-2 text-center sub-title">{{ about.title}}</h2>
+        <div class="about-ecg-story">
+            <h3>{{ about.story[0] }}</h3>
+            {{ about.story[1]|striptags('<br><p></p><strong></strong>')|raw}}
+        </div>
+        <div class="about-ecg-chart">
+            <h3>{{ about.chart[0] }}</h3>
+            {{ about.chart[1]|striptags('<br><p></p><strong></strong>')|raw}}
+        </div>
+    </div>
+</section>
+{% include "partials/3d_carousel.html.twig" %}     
+<section id="about-team">
+    <div class="pro-container">
+        <h2 class="t-d-center t-d-2 text-center sub-title">{{ about.team.pro[0] | raw }}</h2>
+        <div class="pro-box-content">
+            <figure class="portrait">
+                <img src="storage/pro.jpg" alt="photos du pro">
+            </figure>
+           <div class="pro-content">
+               {{about.team.pro[1]|raw}}
+               {{about.team.pro[2]|raw}}
+           </div>
+        </div>
+        <div class="pro-info text-center">
+            {{about.team.pro[3]|raw}}
+        </div>
+    </div>
+    <div class="greenk-container">
+        <h2 class="t-d-center t-d-2 text-center sub-title">{{ about.team.greenk[0] | raw }}</h2>
+        <div class="greenk-box-content">
+            <div class="greenk-content">
+                {{about.team.greenk[1]|raw}}
+                {{about.team.greenk[2]|raw}}
+            </div>
+            <figure class="portrait">
+                <img src="storage/greenkeepers.jpg" alt="portrait du greenkeeper">
+            </figure>
+        </div>
+        
+    </div>
+    <div class="pro-shop-container">
+        <div class="pro-shop">
+            <h2 class="pshop-t-d-center t-d-center t-d-2 text-center sub-title">{{ about.team.office[0] | raw }}</h2>
+            <div class="pro-shop-box-content">
+                <div class="pro-shop-content">
+                    {{about.team.office[1]|raw}}
+                </div>                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

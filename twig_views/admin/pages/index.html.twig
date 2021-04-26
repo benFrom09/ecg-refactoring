@@ -1,0 +1,62 @@
+{% extends "admin_layout.html.twig"%}
+{% block content %}
+	<div class="pt-12 pb-6 container is-fluid">
+		<h3 class="pb-3"><span class="has-text-weight-semibold">Accueil ></span> Tableau de bord, utilisateur:
+			{{ auth.user_name ? auth.user_name : "Admin" }} <date class="date">{{date}}</date></h3>
+		<div class="dashboard-container">
+			<div class="card-container">
+				<div class="card">
+					<div class="card-header">
+						<h2 class="card-header-title">Gestion des parcours</h2>
+					</div>
+					<div class="card-content">
+						<form action="#" method="POST">
+							{{ csrf_input()|raw }}
+							{% set course,practice,compact,car,chariot = "","","","","" %}
+							{% for data in courses %}
+								<div class="field">
+									{% set attribute = (data.state == 1) ? "checked":"" %}
+									<label for="course{{ data.id}}" class="checkbox">
+										<input type="checkbox" id="course{{ data.id}}" class="course-check" autocomplete="off" name="{{data.name}}" {{ attribute }}>
+										<input type="hidden" name="{{ data.name }}" value="{{data.state}}">
+										{% if data.name == "course" %}
+											{% set course = "Parcours(18 trous)" %}
+											<span>Parcours(18 trous)</span>
+										{% elseif data.name == "practice" %}
+											{% set practice = "Practice" %}
+											<span>Practice</span>
+										{% elseif data.name == "compact" %}
+											{% set compact = "Compact/Pitch&Putt" %}
+											<span>Compact/Pitch&Putt</span>
+										{% elseif data.name == "car" %}
+											{% set car = "Voiturettes" %}
+											<span>Voiturettes</span>
+										{% elseif data.name == "chariot" %}
+											{% set chariot = "Chariots" %}
+											<span>Chariots</span>
+										{% endif %}
+										{% if data.state == 1%}
+											<span class="icon is-small is-right">
+												<i class="far fa-grin-beam"></i>
+											</span>
+										{% else %}
+											<span class="icon is-small is-right">
+												<i class="far fa-frown"></i>
+											</span>
+										{% endif %}
+									</label>
+								</div>
+							{% endfor %}
+							<button type="submit" class="button is-info bg-indigo">Enregistrer</button>
+						</form>
+					</div>
+					<div class="card-content course-infos">
+						<p class="w-100  is-italic">Conditions du jour:</p>
+					</div>
+				</div>
+			</div>
+			{% include "admin/partials/prices.html.twig" %}
+		</div>
+
+	</div>
+{% endblock %}

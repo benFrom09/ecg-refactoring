@@ -1,0 +1,37 @@
+{% extends "layout.html.twig" %}
+{% import "macros/form.html.twig" as form %}
+{% block content %}
+<section class="form-page-bg">
+    <div class="form-bg-filter"></div>
+    <div class="ecg-form-container container">
+      {% include "partials/session_message.html.twig" %}
+      <div class="form-wrapper">
+        <div class="form-image">
+          <img class="form-img" src="/storage/contact2.jpg" alt="photo d'un golfeur sur le green">
+        </div>
+        <div class="ecg-form">
+          <form id="loginForm" class="p-3" action="" method="POST">
+            {{ csrf_input()|raw }}
+            <h2 class="ecg-form-title">Connectez-vous</h2>
+            <div class="input-wrapper-100 validate-input mb-35">
+              <input autocomplete="on" type="email" class="input-100" placeholder="Votre email" name="email">
+              <span class="focus-input-100"></span>
+              <div class="input-help"></div>
+            </div>
+            <div class="input-wrapper-100 validate-input mb-35">
+                <input autocomplete="on" type="password" class="input-100" placeholder="Votre mot de passe" name="pwd">
+                <span class="focus-input-100"></span>
+                <div class="input-help"></div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button id="loginBtn" class="btn-large ecg-btn">Envoyer</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+{% endblock %}

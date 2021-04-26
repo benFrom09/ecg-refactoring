@@ -1,0 +1,32 @@
+{
+    "name": "ben09/ecogolf",
+    "description": "\"website\"",
+    "authors": [
+        {
+            "name": "benFrom09",
+            "email": "ben09.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^0.6.0",
+        "twig/twig": "^3.0",
+        "vlucas/phpdotenv": "^4.1",
+        "php-di/php-di": "^6.0",
+        "intervention/image": "^2.5"
+    },
+    "autoload": {
+        "files": [
+            "./app/functions.php"
+        ],
+        "psr-4": {
+            "Ecogolf\\Core\\":"src",
+            "Ecogolf\\":"app",
+            "SimpleEvent\\":"src/SimpleEvent",
+            "Ben09\\":"src/Ben09"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    }
+}

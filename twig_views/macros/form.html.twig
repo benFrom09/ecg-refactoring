@@ -1,0 +1,33 @@
+{% macro input(label,type,name,value = "") %}
+    <div class="field">
+        <label for="{{ name }}" class="label">{{ label }}</label>
+        <div class="control">
+            <input type="{{ type }}" id="{{ name }}" name="{{ name }}" value="{{ value }}" class="input">
+        </div>       
+    </div>
+{% endmacro %}
+{% macro textarea(label,name,value = "") %}
+    <div class="field">
+        <label for="{{ name }}" class="label">{{ label }}</label>
+        <div class="control">
+           <textarea class="textarea" name="{{ name }}" id="{{ name }}">{{ value }}</textarea>
+        </div>       
+    </div>
+{% endmacro %}
+{% macro submit(value,classname = "") %}
+    <div class="control">
+        <button class="button is-link {{ classname }}">{{ value }}</button>
+    </div>
+{% endmacro %}
+{% macro checkbox(label,name,value) %}
+<div class="field">
+    <label for="{{ name }}" class="checkbox">{{ label }}</label>
+    <div class="control">
+        <input type="checkbox" id="{{ name }}" name="{{ name }}" value="{{ value }}">
+    </div>       
+</div>
+{% endmacro %}
+
+
+
+

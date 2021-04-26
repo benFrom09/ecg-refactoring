@@ -1,0 +1,52 @@
+{% extends "admin_layout.html.twig" %}
+{% import "macros/form.html.twig" as form %}
+{% block content %}
+<div class="container p-6">
+    <h2 class="p-6 subtitle text-center mb-0">Modifier l'article {{ article.id }} du {{ article.date|date('d/m/Y') }}</h2>
+    {% include "admin/partials/session_message.html.twig"%}
+    {% if errors is not empty%}
+    <article class="message is-danger">
+        <div class="message-header">
+          <p class="p-0">{{ "Erreur" }}</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          {% for error in errors %}
+            <p class="p-0">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </article>
+    {% endif %}
+    <form class="w-50 m-auto card-form" action="" method="POST" enctype="multipart/form-data">
+      {{ csrf_input()|raw }}
+        {{ form.input("Titre de l'article","text","article_title",article.title)}}
+        {{ form.input("Auteur","text","article_author",article.author)}}
+        {{ form.input("Date:","date","date",article.date|date('Y-m-d'))}}
+        {% if article.image %}
+        <input type="hidden" name="image" value="{{article.image}}">
+        {% endif %}
+        <div id="preview">
+        {% if article.image %}
+        <figure class="image">
+          <img src="/storage/blog/{{ article.image }}" alt="a blog image">
+        </figure>
+        {%  endif %}
+        </div>
+        {{ form.input("Image","file","article_image","")}}
+        <div class="field">
+          <label for="article-editor">Contenu de l'article</label>
+          <textarea class="textarea" name="article_content" id="article-editor">{{article.content}}</textarea>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button formaction="/admin/article/edit/{{article.id}}" class="button is-link bg-indigo" type="submit">Modifier l'article</button>
+            </div>
+            <div class="control">
+                <button  formaction="/admin/article/delete/{{article.id}}" class="button is-danger" type="submit">Supprimer l'article</button>
+            </div>
+        </div>
+      
+       
+    </form>
+</div>
+{% endblock %}

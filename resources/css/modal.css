@@ -1,0 +1,17 @@
+.click_img {
+    margin:auto;
+    cursor:pointer;
+}
+.modal-image {
+    width:80%;
+    margin:auto;
+}
+
+.modal {
+    z-index:1000;
+}
+
+.modal-content {
+    overflow: unset;
+}
+

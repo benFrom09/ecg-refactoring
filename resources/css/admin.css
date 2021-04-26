@@ -1,0 +1,41 @@
+
+.dashboard-container {
+    display:flex;
+    flex-direction:row;
+
+}
+.card-container {
+    width: 33%;
+}
+
+.card-container .card {
+    width:100%!important;
+}
+
+.fa-grin-beam {
+   color: #48c774
+}
+
+.fa-frown {
+    color:#f14668;
+}
+
+.tr-bg-indigo {
+    background:var(--indigo)!important;
+    
+}
+
+.tr-bg-indigo th {
+    color:white!important;
+    font-weight: 300;
+}
+
+.price-table-admin {
+    margin:auto 0;
+}  
+
+.admin-help {
+    padding-left:0;
+    font-size:1rem;
+    color:#f14668;
+}

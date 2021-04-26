@@ -1,0 +1,214 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+<div>
+    <section id="home-hero-banner">
+        <div class="hero-banner-filter">
+        </div>
+        <div class="hero-banner-container">
+            <div class="banner-content">
+                <h2 class="big-title">Ecogolf</h2>
+                <h3 class="sub-title">Ariège-Pyrénées</h3>
+                <a target="_blank" href="https://www.chronogolf.fr/club/ecogolf-argieges-pyrenees" class="btn-large ecg-btn resa-member">
+                    {{home_page.btn_booking}}
+                </a>
+            </div>
+        </div>    
+    </section>
+    <section id="about">
+        <div class="blog-container">
+            <h2 class="sub-title">{{ home_page.ecogolf.title }}</h2>
+            <p>{{ home_page.ecogolf.content |raw }}</p>
+            <a class="btn-large ecg-btn" href="{{ home_page.ecogolf.btn_infos[1] }}">{{ home_page.ecogolf.btn_infos[0]}}</a> 
+        </div>                
+    </section>
+    <section id="today">
+        <h2 class="today_title sub-title">{{ home_page.today.title }}</h2>
+        <div class="ecg-today-info">
+            <div class="ecg-today-item">
+                <div class="ecg-today-icon">
+                    <img src="storage/course.png" alt="">
+                </div>
+                <p>{{ home_page.today.icons[0] }}</p>
+                {% set status,className = "Fermé","is-ecg-danger" %}
+                {% if state[0] == 1 %}
+                     {% set status,className = "Ouvert","is-ecg-success" %}
+                {% endif %}
+                <p class ="{{className}}">{{ status }}</p>
+            </div>
+            <div class="ecg-today-item">
+                <div class="ecg-today-icon">
+                    <img src="storage/golfer.png" alt="">
+                </div>
+                <p>{{ home_page.today.icons[1] }}</p>
+                {% if state[1] == 1 %}
+                     {% set status,className = "Ouvert","is-ecg-success" %}
+                {% endif %}
+                <p class ="{{className}}">{{ status }}</p>
+            </div>
+            <div class="ecg-today-item">
+                <div class="ecg-today-icon">
+                    <img src="storage/compact.png" alt="">
+                </div>
+                <p>{{ home_page.today.icons[2] }}</p>
+                {% if state[2] == 1 %}
+                     {% set status,className = "Ouvert","is-ecg-success" %}
+                {% endif %}
+                <p class ="{{className}}">{{ status }}</p>
+            </div>
+            <div class="ecg-today-item">
+                <div class="ecg-today-icon">
+                    <img src="storage/car.png" alt="">
+                </div>
+                <p>{{ home_page.today.icons[3] }}</p>
+                {% set status,className = "Interdites","is-ecg-danger" %}
+                {% if state[3] == 1 %}
+                     {% set status,className = "Autorisées","is-ecg-success" %}
+                {% endif %}
+                <p class ="{{className}}">{{ status }}</p>
+            </div>
+            <div class="ecg-today-item">
+                <div class="ecg-today-icon">
+                    <img src="storage/chariot.png" alt="">
+                </div>
+                <p>{{ home_page.today.icons[4] }}</p>
+                {% set status,className = "Interdits","is-ecg-danger" %}
+                {% if state[4] == 1 %}
+                     {% set status,className = "Autorisés","is-ecg-success" %}
+                {% endif %}
+                <p class ="{{className}}">{{ status }}</p>
+            </div>        
+        </div>
+	{% include "partials/special_info.html.twig" %}
+        <div class="meteo">
+            {% set m = meteo[0] %}           
+            <div class="meteo-box">
+                <h2>Vent:</h2>
+                <div>
+                    {{ meteo[2]}}
+                </div>
+                <div>
+                    Rafales: {{ meteo[3]}}
+                </div>
+            </div>
+            <div class="meteo-box">
+                <div class="golf-ic">
+                    <h2>{{ meteo[1]}}°C</h2>
+                </div>
+                {% if m == "clear-day" %}
+                <div class="golf-ic">
+                    <img src="storage/sun.png" alt="">
+                </div>
+                {% elseif m == "clear-night" %}
+                <div class="golf-ic">
+                    <img src="storage/night.png" alt="">
+                </div>
+                {% elseif m == "partly-cloudy-day" %}
+                <div class="golf-ic">
+                    <img src="storage/cloudy.png" alt="">
+                </div>
+                {% elseif m == "partly-cloudy-night" %}
+                <div class="golf-ic">
+                    <img src="storage/cloudy_night.png" alt="">
+                </div>
+                {% elseif m == "rain" %}
+                <div class="golf-ic">
+                    <img src="storage/rain.png" alt="">
+                </div>
+                {% elseif m == "snow" %}
+                <div class="golf-ic">
+                    <img src="storage/snow.png" alt="">
+                </div>
+                {% else %}
+                <div class="golf-ic">
+                    <img src="storage/cloudy.png" alt="">
+                </div>
+                {% endif %}
+                <div class="golf-ic">
+                    <h4>{{ meteo[4]}}</h4>
+                </div>
+            </div>
+            <div class="meteo-box">
+                <h2>Précipitations:</h2>
+                <div>
+                    <h4>Probabilité :{{ meteo[5]}}%</h4>
+                </div>
+                <div>
+                    <h4>Intensité:{{ meteo[6]}}</h4>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <section class="home-course">
+        <!--
+        <figure >
+            <img src="storage/vue_haut.jpg" alt="photo du parcours de golf de l'ariège">
+        </figure>-->
+        <h2 class="sub-title">{{ home_page.courses.title }}</h2>
+        
+            <article class="ecg-walk">
+                <h3>{{ home_page.courses.walk[0] }}</h3>
+                <p>{{ home_page.courses.walk[1] }}</p>
+            </article>
+            <article class="ecg-courses">
+                <h3>{{ home_page.courses.course[0] }}</h3>
+                <p>{{ home_page.courses.course[1] }}</p>
+                <h3>{{ home_page.courses.compact[0] }}</h3>
+                <p>{{ home_page.courses.compact[1] }}</p>
+                <h3>{{ home_page.courses.practice[0] }}</h3>
+                <p>{{ home_page.courses.practice[1] }}</p>
+            </article>        
+        <figure id="home-course-map">
+            <img src="storage/map_background.png" alt="plan du parcours">
+        </figure>                
+    </section>
+    <section id="price">
+        <h2 class="sub-title text-center">{{ home_page.prices.title }}</h2>
+        <div class="home-price-container">
+            <div class="home-price-samples">
+                <div>
+                    <h3>Green fee 18 trous</h3>
+                    <p>Adultes à partir de {{ prices[0 ] }} euros. <br>Juniors et étudiants (-25ans) à partir de {{ prices[1] }} euros</p>
+                </div>
+                <div>
+                    <h3>Green fee Compact/Pitch & Putt</h3>
+                    <p>Adultes à partir de {{ prices[2] }} euros. <br>Juniors et étudiants (-25ans): {{ prices[3] }} euros</p>
+                </div>
+                <div>
+                    <h3>Baptème (durée 2h)</h3>
+                    <p>Adultes à partir de {{ prices[4] }} euros. <br>Moins de 18 ans: {{prices[5]}} euros</p>
+                </div>
+            </div>
+            <div class="home-price-btn">
+                <a href="/prices" class="btn-large ecg-btn">{{home_page.prices.btn}}</a>
+            </div>           
+        </div>
+    </section>
+    <section id="restaurant">
+        <div class="restaurant-container">
+            <div class="restaurant-block-container">
+                <figure class="resto-figure"><img src="storage/resto1.jpg" alt="photo terrasse restaurant"></figure>
+                <div class="restaurant-title-content">
+                    <h2 class="resto-title sub-title">{{home_page.restaurant.title}}</h2>
+                    <p class="resto-p text-center">{{home_page.restaurant.content}}</p>
+                    <!--<p class="text-center"><a href="" class="btn-large ecg-btn">{{home_page.restaurant.btn}}</a></p>-->
+                </div>
+            </div>
+            
+            <div class="restaurant-block-container">
+                <div class="resto-info">
+                    <p>{{ home_page.restaurant.item_1}}</p>
+                    <p>{{ home_page.restaurant.item_2|striptags('<br>')|raw}}</p>
+                </div>  
+                <figure class="resto-figure"><img src="storage/resto2.jpg" alt="photo bar interieur restaurant "></figure>    
+            </div>
+            
+        </div>
+    </section>
+    <section id="partner">
+        <h2 class="text-center sub-title">{{ home_page.sponsor.title }}</h2>
+        {% include "partials/partner_carousel.html.twig"%}
+    </section>
+    
+</div>
+{% endblock %}

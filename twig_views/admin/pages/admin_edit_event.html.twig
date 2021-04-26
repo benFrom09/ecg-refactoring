@@ -1,0 +1,38 @@
+{% extends "admin_layout.html.twig" %}
+{% import "macros/form.html.twig" as form %}
+{% block content %}
+<div class="container p-6">
+    <h2 class="p-6 subtitle text-center mb-0">{{ title }}</h2>
+    {% include "admin/partials/session_message.html.twig"%}
+    <form class="w-50 m-auto card-form" action="" method="post">
+      {{ csrf_input()|raw }}
+        {{ form.input("","hidden","id",data.id)}}
+        {{ form.input("Nom de l'évènement:","text","name", data.name )}}
+        {{ form.input("Date:","date","date",data.date)}}
+        {{ form.input("Heure de début:","time","start_time",data.start_time)}}
+        {{ form.input("Heure de fin:","time","end_time",data.end_time)}}
+        {{ form.textarea("Description:","description",data.description)}}
+        <div class="field">
+          {% set attribute = (data.logo == 1) ? "checked":"" %}
+          <label for="p-logo" class="checkbox">Logo Premium</label>
+          <div class="control">
+              <input type="checkbox" id="p-logo" name="logo" value="{{data.logo}}" {{ attribute }}>
+          </div>       
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link bg-indigo">Modifier</button>
+            </div>
+            <div class="control">
+              <button formaction="/admin/event/delete/{{ data.id }}" class="button is-link is-light is-danger">Supprimer</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+  document.querySelector("#p-logo").addEventListener('change',(e)=> {
+      e.target.value = e.target.value == 1 ? 0 : 1;
+      e.target.value == 1 ? e.target.setAttribute("checked",true) : e.target.removeAttribute("checked");
+  });
+</script>
+{% endblock %}

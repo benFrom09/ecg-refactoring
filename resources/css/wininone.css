@@ -1,0 +1,141 @@
+
+.wininone {
+    color:#fff;
+}
+.wininone-container {
+    position:relative;
+    width:80%;
+    margin: 0 auto 180px;
+    background:linear-gradient(30deg, rgb(127 190 237) 10%, rgb(47 150 223) 42%, rgb(27 136 196) 94%);
+    z-index: 800;
+}
+.wininone-container:after {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    /*background:url('../storage/wininone/dieu.jpg');*/
+    background-size: cover;
+    background-origin: content-box;
+    width:100%;
+    height: 100%;
+}
+.wininone_logo {
+    padding-top:40px;
+    position:relative;
+    z-index:800;
+}
+.wininone_content {
+    position: relative;
+    padding:30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.wininone_content:before {
+    content:"";
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    clip-path: polygon(0 70%, 100% 0%, 100% 100%, 0 100%);
+    background: #223a28cb;
+    
+}
+
+.wininone_text_content {
+    z-index:800;
+    padding:1.5rem;
+}
+
+.wininone_title {
+    text-align: center;
+    font-size: 30px;
+    margin-top:2em;
+    font-family: 'Shadows Into Light', cursive;
+    color:#151313d9;
+}
+
+.wininone_img {
+    width:80%;
+}
+
+.million {
+    font-size: 2.5rem;
+    color: #efefef;
+    margin-bottom: 1em;
+}
+
+.exploit {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+}
+
+.wininone_green_text {
+    font-size: 1.8rem;
+    color: #8ebf21;
+}
+
+.wininone_text {
+    font-size: 20px;
+}
+.wininone_text span {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+    color:#151313;
+}
+
+.wininone_trou {
+    cursor:pointer;
+}
+
+.modalite {
+    font-size: 14px;
+    color:rgba(0, 0, 0, 0.849);
+    text-align: center;
+}
+
+.wininone_btn {
+    background: var(--golfDarkTurquoise);
+    color:var(--golfYellow);
+    font-size: 20px;
+    transition:all 0.5s ease-in-out;
+}
+
+.wininone_btn:hover {
+    background: var(--golfLightGreen);
+    color:var(--golfWhite);
+}
+
+.w1_modal {
+    width:70%;
+}
+
+@media (min-width:0) and (max-width:1260px) {
+    
+    .wininone_content {
+        position: relative;
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    .w1_modal {
+        width:100%;
+    }
+
+    .w1-modal-img {
+        width:100%;
+    }
+}
+
+@media (min-width:0) and (max-width:1024px) {
+    .wininone-container {
+        width:100%;
+    }
+}

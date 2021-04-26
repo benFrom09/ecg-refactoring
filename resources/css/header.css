@@ -1,0 +1,124 @@
+header {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 120px;
+    background:#fff;
+    z-index:1000;
+}
+
+.admin-header {
+    background-image: linear-gradient(135deg,#667eea 0,#764ba2 100%);
+    color:#fff;
+    height: 60px;
+}
+
+.admin-header ul {
+    height: 60px;
+}
+
+.admin-header ul li {
+    padding:1rem;
+}
+
+nav {
+    align-items: center;
+    font-family: 'PT serif','serif';
+    font-size: 1.2rem;
+    font-weight: 300;
+    
+}
+
+nav a {
+    padding-bottom:2px;
+    transition:color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    /*color:rgba(25, 25, 26, 0.445);*/
+    color:var(--golfLightGreen);
+}
+
+.header-menu {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    height: 120px;
+}
+
+#logo {
+    width:100px;
+    position:absolute;
+    top:60px;
+    left:2rem;
+
+}
+
+#hamburger {
+    width:auto;
+    font-size:2em;
+    text-align:center;
+    position:absolute;
+    right: 2rem;
+    top:50%;
+    transform:translate3d(0,-50%,0);
+    cursor:pointer;
+    display:none;
+
+}
+
+li {
+    padding:1.5rem;
+}
+
+.header-menu {
+    text-align:center;
+}
+
+.wininone_logo_menu {
+    display:block;
+    width: 100px;
+}
+@media (min-width:0) and (max-width:1260px) {
+
+    nav {
+        position: absolute;
+        top:30px;
+        width:100%;
+        background:#fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        left:-100%;
+        transition:all 0.4s ease;
+        
+    }
+    .header-menu {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .nav-opened {
+        left:0;
+        height: 100vh;
+    }
+
+    #logo {
+        width:60px;
+        top:23px;
+    }
+
+    #hamburger {
+        display:block;
+    }
+
+    
+    
+}
+

@@ -1,0 +1,91 @@
+#prices {
+    padding-top:180px;
+    margin:auto;
+    padding-bottom: 120px;
+}
+
+.prices-ecg-container {
+    width:60%;
+    margin:auto;
+}
+
+.price-table {
+    width:600px;
+    margin:auto;
+}
+
+.table-price-subtitle {
+    text-align: center;
+    margin:10px auto;
+    font-size:1.5rem;
+}
+
+.price-info {
+    color:#48c774;
+}
+
+.price-danger {
+    font-size: 0.8rem;
+    color:rgba(247, 0, 0, 0.76);
+}
+
+.price-red-star {
+    color:rgba(247, 0, 0, 0.76);
+    font-size:1.2rem;
+}
+
+.price-advantage {
+    padding:1rem;
+    width:600px;
+    margin:auto;
+    text-align: justify;
+    color: #48c774;
+}
+
+.price-advantage h3 {
+    text-decoration: underline;
+}
+
+.price-advantage li {
+    padding:0.2rem;
+    text-align: justify;
+    margin:auto;
+}
+
+.price-special-offers {
+    padding:1rem;
+    border:2px solid #ffdd57;
+    margin-bottom: 25px;
+}
+
+.price-special-offers li {
+    padding:0.5rem;
+}
+
+.price-special-offers h3 {
+    font-size: 1.2rem;
+}
+
+.offer-colorized {
+    color: #48c774;
+}
+
+.offer-bold {
+    font-weight: bold;
+}
+
+.season-info {
+    margin: 36px;
+    text-align: center;
+}
+
+@media(min-width:0) and (max-width:1024px) {
+    .prices-ecg-container {
+        width:90%;
+        font-size:90%;
+    }
+
+    .price-table {
+        width:auto;
+    }
+}

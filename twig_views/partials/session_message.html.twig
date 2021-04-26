@@ -1,0 +1,12 @@
+{% for key, message in messages %}
+    {% set success = key == "success" ? "is-success" : "is-danger" %}
+    <article class="message {{ success }}">
+        <div class="message-header">
+          <p class="p-0">{{ "Message" }}</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+            <p class="p-0">{{ message }}</p>       
+        </div>
+    </article>
+{% endfor %}

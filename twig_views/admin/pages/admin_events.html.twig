@@ -1,0 +1,11 @@
+{% extends "admin_layout.html.twig" %}
+{% block content %}
+<section class="pt-12 container is-fluid">
+    <p class="m-0 is-ecg-danger">*Cliquez sur une date ou sur + pour ajouter un évènement,<br>
+        Cliquez sur évènement dans le calendrier pour le modifier.</p>
+    <div class="simple-event-container">
+    {% include "admin/partials/calendar.html.twig" %}
+    </div>
+</section>
+
+{% endblock %}

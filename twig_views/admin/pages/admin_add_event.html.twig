@@ -1,0 +1,29 @@
+{% extends "admin_layout.html.twig" %}
+{% import "macros/form.html.twig" as form %}
+{% block content %}
+<div class="container p-6">
+    <h2 class="p-6 subtitle text-center mb-0">Enregistrer un évènement</h2>
+    {% if errors is not empty%}
+    <article class="message is-danger">
+        <div class="message-header">
+          <p class="p-0">{{ "Erreur" }}</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          {% for error in errors %}
+            <p class="p-0">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </article>
+    {% endif %}
+    <form class="w-50 m-auto card-form" action="" method="post" enctype="multipart/form-data">
+      {{ csrf_input()|raw }}
+        {{ form.input("Nom de l'évènement:","text","name","")}}
+        {{ form.input("Date:","date","date",date)}}
+        {{ form.input("Heure de début:","time","start_time","10:00")}}
+        {{ form.input("Heure de fin:","time","end_time","19:00")}}
+        {{ form.textarea("Description:","description","")}}
+        {{ form.submit("Ajouter","bg-indigo")}}
+    </form>
+</div>
+{% endblock %}
